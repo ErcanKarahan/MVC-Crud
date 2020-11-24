@@ -1,0 +1,61 @@
+﻿@model CategoryVM
+@{
+    ViewBag.Title = "AddCategory";
+}
+
+<h2>AddCategory</h2>
+
+<div class="panel panel-primary">
+    <div class="panel panel-body">
+
+        <!-- MVC Helper'larınız size yine HTML kodu render eden , ama bunu size bir C# metodu yazdırarak yapan daha performanslı yapılarınızdır... Yazımı normal bir html tag'ine göre daha kolay olabilecek tagler Helper'a cevrilmiştir...Ama isterseniz kendi Helper'larınızı yaratabilirsiniz... 
+            
+            
+            
+            
+            
+            
+            -->
+
+        @using (Html.BeginForm("AddCategory","Category",FormMethod.Post))
+        {
+            <div>
+                Kategori İsmini Giriniz
+            </div>
+            <div>
+                <!-- Sizin Helperlariniz'dan bazıları for takısıyla biter...For takısıyla biten helperlariniz otomatik olarak set edilmiş modele baglı yapılardır. Bir View modeli @@model keyword'u ile set eder...  For takısıyla biten helperlar otomatik olarak o modele baglanır(model binding) .Hem veri gönderme konusunda iclerindeki yazıyı modele baglarlar, eger modelden bir veri geliyorsa da o veriyi kendi textlerinde cıkarırlar otomatik olarak    -->
+
+               @Html.TextBoxFor(x => x.Category.CategoryName,new { @class="form-control"})
+
+            </div>
+
+            <div>
+                Kategori Acıklaması Giriniz
+            </div>
+            <div>
+                @Html.TextBoxFor(x => x.Category.Description, new { @class="form-control"})
+            </div>
+            <br />
+            <div>
+                <!--Html'deki button tag'i bir formun icerisindese otomatik olarak o formu post etmekle görevlidir...-->
+                @*<input type="submit" /> Eger bu sekilde bir button acmak istiyorsanız o zaman tipinin kesinlikle submit olması gerekir *@ 
+
+
+
+                <button class="btn btn-primary">Ekle</button>
+            </div>
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
